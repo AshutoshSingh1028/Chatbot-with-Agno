@@ -7,4 +7,4 @@ load_dotenv()
 
 os.environ['GROQ_API_KEY'] = os.getenv("GROQ_API_KEY")
 
-agent.print_response("Hows the weather in delhi today")
+agent.print_response("where did i ask to plan the trip for first?")

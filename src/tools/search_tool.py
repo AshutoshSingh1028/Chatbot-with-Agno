@@ -18,3 +18,4 @@ def duckduckgo_search(query: str) -> str:
             return json.dumps(results, indent=2)
     except Exception as e:
         return f"Search failed: {str(e)}"
+    
