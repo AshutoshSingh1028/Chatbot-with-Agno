@@ -18,6 +18,6 @@ agent = Agent(
     instructions="If the relevant tool is required then always call it it. If not tool is needed, you respond directly.\
     Always use the search tool when the user query requires up-to-date information or web search.\
     Always use the summarize tool when the user query asks for a summary of a news article or blog post. Respond in exactly 3 sentences when summarizing.",
-    tools=[TavilyTools(), summarize_article],
+    tools=[TavilyTools(search_depth='advanced'), summarize_article],
     markdown=True
 )
