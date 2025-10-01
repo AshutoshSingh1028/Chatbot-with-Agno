@@ -1,0 +1,4 @@
+agno
+streamlit
+ddgs
+python-dotenv
