@@ -14,7 +14,6 @@ os.environ['TAVILY_API_KEY'] = os.getenv("TAVILY_API_KEY")
 # Create agent with custom tool
 agent = Agent(
     model=Groq(id="qwen/qwen3-32b"),
-    db=db,
     description="You are an AI assistant that carefully looks at the user input and decides when to call the relevant tool.",
     instructions="If the relevant tool is required then always call it it. If not tool is needed, you respond directly.\
     Always use the search tool when the user query requires up-to-date information or web search.\
