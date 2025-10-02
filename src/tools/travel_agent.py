@@ -5,7 +5,7 @@ from agno.tools import Toolkit
 
 class FinanceToolkit(Toolkit):
     def __init__(self):
-        super().__init__(name="finance_toolkit", description="Expense summarization tools")
+        super().__init__(name="finance_toolkit")
         self.register(expense_summary)
 
 def expense_summary(
