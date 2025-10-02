@@ -3,3 +3,4 @@ streamlit
 ddgs
 python-dotenv
 tavily-python
+groq
