@@ -4,4 +4,4 @@ ddgs
 python-dotenv
 tavily-python
 groq
-beatifulsoup4
+beautifulsoup4
