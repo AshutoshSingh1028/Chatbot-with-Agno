@@ -5,3 +5,4 @@ python-dotenv
 tavily-python
 groq
 beautifulsoup4
+exa-py

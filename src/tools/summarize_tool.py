@@ -3,14 +3,15 @@ from bs4 import BeautifulSoup
 from agno.agent import Agent
 from agno.models.groq import Groq
 
-def summarize_article(url: str) -> str:
-    """Scrape and summarize any news article or blog post in exactly 3 sentences.
+def summarize_article(url: str, n: int) -> str:
+    """Scrape and summarize any news article or blog post in exactly n sentences. If the user does not specify the number of sentences, summarize in exactly 3 sentences.\
+       Always number the sentences in the summary. 
     
     Args:
-        url (str): The URL of the article to summarize
+        url (str): The URL of the article to summarize   
         
     Returns:
-        str: A 3-sentence summary of the article
+        str: The content of the article or an error message.
     """
     try:
         # Scrape the article
@@ -35,17 +36,7 @@ def summarize_article(url: str) -> str:
         if not content.strip():
             return "Could not extract content from the article."
         
-        # Use LLM to summarize in exactly 3 sentences
-
-        agent = Agent(
-            model=Groq(id="openai/gpt-oss-20b"),
-            description="You are an AI assistant that summarizes articles concisely in exactly 3 sentences.",
-            instructions="Summarize the article in exactly 3 sentences, capturing the main points clearly and concisely.",
-            markdown=False
-        )
-        
-        summary = agent.run(f"Summarize the following article in exactly 3 sentences:\n\n{content}")
-        return summary.content
+        return content.strip()
         
     except Exception as e:
         return f"Error processing article: {str(e)}"

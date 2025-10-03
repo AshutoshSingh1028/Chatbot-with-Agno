@@ -1,12 +1,14 @@
 from typing import List, Dict, Any, Literal, Optional
 from datetime import date, datetime, timedelta
 from collections import defaultdict
+from typing import TypedDict
 from agno.tools import Toolkit
 
 class FinanceToolkit(Toolkit):
     def __init__(self):
         super().__init__(name="finance_toolkit")
         self.register(expense_summary)
+
 
 def expense_summary(
     period: Literal["daily", "weekly", "monthly"],

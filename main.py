@@ -84,12 +84,24 @@ with st.form("chat_form", clear_on_submit=True):
 	)
 	submitted = st.form_submit_button("Send")
 
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
 if submitted and user_input:
-	with st.spinner("Thinking..."):
-		response = agent.run(user_input)
-	st.markdown("<div style='margin-top:2rem; color:#38bdf8; font-weight:600;'>Response:</div>", unsafe_allow_html=True)
-	# Try to render markdown, fallback to plain text if error
-	try:
-		st.markdown(response.content, unsafe_allow_html=False)
-	except Exception:
-		st.write(response.content)
+    # Show user message
+    with st.chat_message("user"):
+        st.markdown(user_input)
+    st.session_state.messages.append({"role": "user", "content": user_input})
+
+    with st.spinner("Thinking..."):
+        response = agent.run(user_input)
+
+    # Show assistant response
+    with st.chat_message("assistant"):
+        # Prefer markdown; fallback to write
+        try:
+            st.markdown(response.content)
+        except Exception:
+            st.write(response.content)
+    st.session_state.messages.append({"role": "assistant", "content": response.content})
+
