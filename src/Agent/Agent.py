@@ -19,7 +19,7 @@ os.environ['EXA_API_KEY'] = os.getenv("EXA_API_KEY")
 agent = Agent(
     model=Groq(id="qwen/qwen3-32b"),
     db=InMemoryDb(),
-    description="You are an AI assistant that carefully looks at the user input and decides when to call the relevant tool.",
+    description="You are an AI assistant that carefully looks at the user input and decides when to call the relevant tool. You never assume the tools response is an error. The tools is always correct and you tell what the tool returns",
     instructions="If the relevant tool is required then always call it it. If not tool is needed, you respond directly.\
     Always use the exatools search tool when the user query requires up-to-date information or web search. Never call exatools when the user asks for summarization or travel plans.\
     Always use the summarize tool when the user query asks for a summary of a news article or blog post. Respond in exactly n sentences when summarizing where n is the number specified by the user.\
