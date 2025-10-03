@@ -30,7 +30,7 @@ This project is a **multi-functional chatbot** built with Streamlit, designed to
 1. **Clone the repository:**
 
 ```bash
-git clone <https://github.com/AshutoshSingh1028/Chatbot-with-Agno>
+git clone https://github.com/AshutoshSingh1028/Chatbot-with-Agno
 cd <your-repo-folder>
 ```
 
