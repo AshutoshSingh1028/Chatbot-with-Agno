@@ -57,7 +57,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<h1 style='text-align:center; font-weight:700; letter-spacing:1px; margin-bottom: 1.5rem; color:#a5b4fc;'>Agentic AI Chatbot</h1>
+<h1 style='text-align:center; font-weight:700; letter-spacing:1px; margin-bottom: 1.5rem; color:#a5b4fc;'>Multitool AI Chatbot</h1>
 """, unsafe_allow_html=True)
 
 # Sidebar with professional features description
