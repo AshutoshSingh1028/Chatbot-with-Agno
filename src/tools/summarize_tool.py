@@ -30,7 +30,7 @@ def extract_article_text(url: str) -> str:
         return f"Error processing article: {str(e)}"
 
 
-def chunk_text(text: str, max_words: int = 500):
+def chunk_text(text: str, max_words: int = 1200):
     """Split text into chunks of max_words words."""
     words = text.split()
     for i in range(0, len(words), max_words):
@@ -46,7 +46,7 @@ def summarize_chunk(chunk: str, n: int = 3) -> str:
     prompt = f"Summarize the following text in exactly {n} numbered sentences:\n\n{chunk}"
     summary = agent.run(prompt)
 
-    return summary.content.strip()
+    return summary.content
 
 
 def summarize_article(url: str, n: int = 3) -> str:
@@ -63,7 +63,7 @@ def summarize_article(url: str, n: int = 3) -> str:
         return article_text
 
     # Break the text into smaller chunks
-    chunks = list(chunk_text(article_text, max_words=500))
+    chunks = list(chunk_text(article_text, max_words=1200))
 
     # Summarize each chunk individually
     chunk_summaries = [summarize_chunk(chunk, n) for chunk in chunks]
